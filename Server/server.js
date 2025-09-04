@@ -774,4 +774,8 @@ function authenticateToken(req, res, next) {
 function Role(role) {
   return (req, res, next) => {
     if (req.user.role.toLowerCase() !== role.toLowerCase()) {
-      return res.status(403).json({ message: "Yo have no Access" });
+      return res.status(403).json({ message: "You have no Access" });
+    }
+    next();
+  };
+}
