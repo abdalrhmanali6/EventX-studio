@@ -11,10 +11,16 @@ const app = express();
 const QRCode = require("qrcode");
 const { Parser } = require("json2csv");
 
-mongoose
-  .connect(process.env.MONGO_URL)
-  .then(()=>console.log("connected"))
-  .catch((e) => console.error(e));
+let isConnected;
+
+async function connectDB() {
+  if (isConnected) return;
+  await mongoose.connect(process.env.MONGO_URL);
+  isConnected = true;
+  console.log("MongoDB Connected ✅");
+}
+
+connectDB();
 
 app.use(express.json());
 app.use(cors({
@@ -724,10 +730,8 @@ app.get(
   }
 );
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Server running on port ${PORT}`);
-});
+module.exports = app;
+
 
 //?.......................................................Functions.........................................................................................
 
