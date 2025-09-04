@@ -30,9 +30,9 @@ Access-token=your_secret_key
 
 ## 🌍 Live Demo
 
-Frontend: (https://event-x-studio-7.vercel.app
+Frontend: https://event-x-studio-7.vercel.app
 
-Backend: (https://event-x-backend-one.vercel.app
+Backend: https://event-x-backend-one.vercel.app
 
 # 📑 Final Report
 
@@ -77,8 +77,7 @@ Backend: (https://event-x-backend-one.vercel.app
    
    12- json2csv (Parser) → Converts JSON data into CSV format, which is useful for exporting reports or data
 
-
-- Mongoose Setup
+2- Mongoose Setup
   ```js
   mongoose
   .connect(process.env.MONGO_URL)
@@ -90,6 +89,108 @@ Backend: (https://event-x-backend-one.vercel.app
    2- `.then(() => console.log("connected")):` This part executes if the connection is successful. The `.then()` method handles the "promise" returned by `connect().` When it resolves       successfully, it prints "connected" to the console.
 
    3- `.catch((e) => console.error(e)):` This part acts as an error handler. If the connection fails for any reason (e.g., invalid URL, network issue), the `.catch()` method catches       the `error (e)` and logs it to the console for debugging.
+
+3-Express and cors setup
+   ```js
+      app.use(express.json());
+      app.use(
+     cors({
+       origin: "*",
+    credentials: true,
+  })
+);
+   ```
+   1-` express.json()`: Parses JSON data from incoming requests into `req.body`.
+
+   2- `cors()`: Allows frontend apps from any `origin ("*")` to access this server, including requests with `credentials (cookies, auth)`.
+
+4-Auth APIs
+   1- Register
+   ```js
+app.post("/register", async (req, res) => {
+  try {
+    const hashedPass = await bcrypt.hash(req.body.pass, 10);
+
+    const user = {
+      fname: req.body.fname,
+      lname: req.body.lname,
+      username: req.body.username,
+      email: req.body.email,
+      pass: hashedPass,
+      phone: req.body.phone,
+      gender: req.body.gender,
+      age: req.body.age,
+    };
+
+    const { existingEmail, existingPhone, existingUsername } =
+      await isUserExist(user.email, user.username, user.phone);
+
+    if (existingEmail || existingPhone || existingUsername) {
+      return res.status(409).json({
+        message: "Duplicate Found!",
+        existingEmail,
+        existingPhone,
+        existingUsername,
+      });
+    }
+
+    const newUser = await User.create(user);
+    res.status(201).json({ message: "Account register", user: newUser });
+  } catch (error) {
+    res.status(500).json({ message: "registed Failed", error: error.message });
+  }
+});
+
+```
+   1- Hashes the password.
+
+   2- Checks for existing email, phone, or username.
+
+   3- Returns 409 if duplicate exists.
+
+   4-Creates new user and returns 201 on success.
+
+2- login
+   ```js
+   app.post("/login", async (req, res) => {
+  try {
+    const loginUser = await User.findOne({
+      $or: [{ email: req.body.email }, { username: req.body.username }],
+    });
+    if (loginUser == null) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    await User.updateOne(
+      { username: loginUser.username },
+      { $set: { role: req.body.role } }
+    );
+    if (await bcrypt.compare(req.body.pass, loginUser.pass)) {
+      const token = generateToken({
+        username: loginUser.username,
+        _id: loginUser._id,
+        role: req.body.role,
+      });
+      res.status(200).json({ message: " success", token: token });
+    } else {
+      res.status(400).json({ message: "wrong password" });
+    }
+  } catch (e) {
+    res.status(500).json({ message: "login Failed", error: e.message });
+  }
+});
+```
+ 1- Finds user by email or username.
+
+ 2- Returns 404 if not found.
+
+ 3- Updates user's role.
+
+ 4- Compares password hash.
+
+ 5- Returns JWT token on success, 400 on wrong password
+
+
+
    
 
    
