@@ -1,6 +1,6 @@
 import React, { useContext, useState,useEffect } from "react";
 import { EventContext } from "../App";
-import PaymentForm from "../components/PaymentCArd";
+import PaymentForm from "../components/PaymentCard";
 import PaymentWallet from "../components/PaymentWallet";
 import { useNavigate } from "react-router-dom";
 import api from "../components/Api";
