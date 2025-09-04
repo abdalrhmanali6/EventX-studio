@@ -17,13 +17,7 @@ mongoose
   .catch((e) => console.error(e));
 
 app.use(express.json());
-app.use(
-  cors({
-    origin: "https://event-x-studio-7.vercel.app",
-    methods: ["GET", "POST", "PUT", "DELETE","PATCH"],
-    credentials: true,
-  })
-);
+app.use());
 
 //*?...........................................................................Auth..........................................................................
 app.post("/register", async (req, res) => {
