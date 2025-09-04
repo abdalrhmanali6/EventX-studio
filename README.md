@@ -37,6 +37,44 @@ Backend: (https://event-x-backend-one.vercel.app
 # 📑 Final Report
 
 1- BackEnd
-   -
+-
+   ```js
+require("dotenv").config();
+const express = require("express");
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const User = require("./Users");
+const cors = require("cors");
+const Events = require("./Events");
+const Ticket = require("./Ticket");
+const app = express();
+const QRCode = require("qrcode");
+const { Parser } = require("json2csv");
+```
+dotenv → Loads environment variables from a .env file into process.env. Helps keep sensitive data (like database URIs or secret keys) secure.
+
+express → A lightweight web framework for Node.js. It’s used to create the server, handle HTTP requests (GET, POST, etc.), and define APIs.
+
+mongoose → A MongoDB object modeling tool. It allows you to define schemas and interact with MongoDB in a structured way.
+
+bcrypt → A library used to securely hash and compare passwords. It’s essential for protecting user credentials.
+
+jsonwebtoken (JWT) → Used for authentication and authorization. It generates tokens for logged-in users so they can securely access protected routes.
+
+cors → Middleware that allows cross-origin requests (e.g., letting your React frontend communicate with your Node.js backend).
+
+User / Events / Ticket (Custom Models) → These are your Mongoose models that represent collections in MongoDB:
+
+User → Stores user information (username, email, password, etc.).
+
+Events → Stores event details (title, date, location, etc.).
+
+Ticket → Stores ticket information linked to events and users.
+
+qrcode → Generates QR codes (for example, to validate event tickets or provide quick access to information).
+
+json2csv (Parser) → Converts JSON data into CSV format, which is useful for exporting reports or data
+
 
 
