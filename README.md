@@ -30,9 +30,9 @@ Access-token=your_secret_key
 
 ## 🌍 Live Demo
 
-Frontend: https://event-x-studio.vercel.app
+Frontend: https://event-x-studio-7.vercel.app
 
-Backend: https://event-x-backend.vercel.app
+Backend: https://event-x-backend-one.vercel.app
 
 # 📑 Final Report
 
