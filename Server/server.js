@@ -26,6 +26,12 @@ app.use(cors({
 
 
 //*?...........................................................................Auth..........................................................................
+
+app.get("/ping", (req, res) => {
+  res.json({ msg: "pong ✅" });
+});
+
+
 app.post("/register", async (req, res) => {
   try {
     const hashedPass = await bcrypt.hash(req.body.pass, 10);
