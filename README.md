@@ -36,7 +36,7 @@ Backend: (https://event-x-backend-one.vercel.app
 
 # 📑 Final Report
 
-1- BackEnd
+1- BackEnd ![Node.js](https://img.shields.io/badge/node-%3E%3D14-green)
 -
    ```js
 require("dotenv").config();
