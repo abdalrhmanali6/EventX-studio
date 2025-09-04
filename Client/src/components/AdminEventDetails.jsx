@@ -1,7 +1,7 @@
 import  { useContext, useEffect, useState } from "react";
 import { EventContext } from "../App";
 
-import Input from "./input";
+import Input from "./Input";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import api from "./Api";
