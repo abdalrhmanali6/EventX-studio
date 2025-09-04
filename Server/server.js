@@ -725,7 +725,7 @@ app.get(
   }
 );
 
-module.exports = app;
+
 
 
 //?.......................................................Functions.........................................................................................
@@ -746,9 +746,7 @@ function generateToken(user) {
   return jwt.sign(
     { username: user.username, id: user._id, role: user.role },
     process.env.ACCESS_TOKEN,
-    {
-      expiresIn: "30m",
-    }
+    { expiresIn: "30m" }
   );
 }
 
@@ -756,18 +754,20 @@ function authenticateToken(req, res, next) {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
   if (token == null) {
-  return res.status(401).json({ message: "Not authenticated" });
-}
-
-jwt.verify(token, process.env.ACCESS_TOKEN, (err, user) => {
-  if (err) {
-    return res
-      .status(403)
-      .json({ message: "Access denied please Relogin", error: err.message });
+    return res.status(401).json({ message: "Not authenticated" });
   }
-  req.user = user;
-  next();
-});
+
+  jwt.verify(token, process.env.ACCESS_TOKEN, (err, user) => {
+    if (err) {
+      return res.status(403).json({
+        message: "Access denied please Relogin",
+        error: err.message,
+      });
+    }
+    req.user = user;
+    next();
+  });
+}
 
 function Role(role) {
   return (req, res, next) => {
@@ -777,3 +777,5 @@ function Role(role) {
     next();
   };
 }
+
+module.exports = app;
