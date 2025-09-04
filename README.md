@@ -34,9 +34,9 @@ Frontend: https://event-x-studio-7.vercel.app
 
 Backend: https://event-x-backend-one.vercel.app
 
-# H1📑 Final Report
+# 📑 Final Report
 
- # H2 BackEnd ![Node.js](https://img.shields.io/badge/node-%3E%3D14-green)
+ ## BackEnd ![Node.js](https://img.shields.io/badge/node-%3E%3D14-green)
 
   - **Added the modules that are used in the backend.</summary>**
    ```js
@@ -106,21 +106,21 @@ Backend: https://event-x-backend-one.vercel.app
 
 **Auth APIs**
    - Register
-      ```js
-   app.post("/register", async (req, res) => {
-     try {
-       const hashedPass = await bcrypt.hash(req.body.pass, 10);
-   
-       const user = {
-         fname: req.body.fname,
-         lname: req.body.lname,
-         username: req.body.username,
-         email: req.body.email,
-         pass: hashedPass,
-         phone: req.body.phone,
-         gender: req.body.gender,
-         age: req.body.age,
-       };
+     ```js
+     
+      app.post("/register", async (req, res) => {
+        try {
+          const hashedPass = await bcrypt.hash(req.body.pass, 10);
+          const user = {
+            fname: req.body.fname,
+            lname: req.body.lname,
+            username: req.body.username,
+            email: req.body.email,
+            pass: hashedPass,
+            phone: req.body.phone,
+            gender: req.body.gender,
+            age: req.body.age,
+          };
    
        const { existingEmail, existingPhone, existingUsername } =
          await isUserExist(user.email, user.username, user.phone);
@@ -139,10 +139,10 @@ Backend: https://event-x-backend-one.vercel.app
      } catch (error) {
        res.status(500).json({ message: "registed Failed", error: error.message });
      }
-   });
+      });
    
    ```
-   - 1 Hashes the password.
+- 1 Hashes the password.
 
    - 2 Checks for existing email, phone, or username.
 
