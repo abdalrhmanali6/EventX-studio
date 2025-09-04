@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import api from "../components/Api";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
-import Input from "../components/input";
+import Input from "../components/Input";
 const Register = () => {
   const navigate = useNavigate();
 
