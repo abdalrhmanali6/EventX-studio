@@ -76,6 +76,20 @@ Backend: (https://event-x-backend-one.vercel.app
    11- qrcode → Generates QR codes (for example, to validate event tickets or provide quick access to information).
    
    12- json2csv (Parser) → Converts JSON data into CSV format, which is useful for exporting reports or data
+
+
+- Mongoose Setup
+  ```js
+  mongoose
+  .connect(process.env.MONGO_URL)
+  .then(() => console.log("connected"))
+  .catch((e) => console.error(e));
+  ```
+   1- `mongoose.connect(process.env.MONGO_URL):` This is the core function that initiates the connection. It takes the database connection string from the `MONGO_URL` environment variable. Using an environment variable is a secure best practice to keep sensitive credentials out of the source code.
+
+   2- `.then(() => console.log("connected")):` This part executes if the connection is successful. The `.then()` method handles the "promise" returned by `connect().` When it resolves       successfully, it prints "connected" to the console.
+
+   3- `.catch((e) => console.error(e)):` This part acts as an error handler. If the connection fails for any reason (e.g., invalid URL, network issue), the `.catch()` method catches       the `error (e)` and logs it to the console for debugging.
    
 
    
