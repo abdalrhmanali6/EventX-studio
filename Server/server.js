@@ -23,12 +23,7 @@ async function connectDB() {
 connectDB();
 
 app.use(express.json());
-app.use(cors({
-  origin: "https://event-x-studio-7.vercel.app", 
-  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true
-}));
+app.use(cors());
 
 
 //*?...........................................................................Auth..........................................................................
@@ -761,19 +756,18 @@ function authenticateToken(req, res, next) {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
   if (token == null) {
-    res.status(401).json({ message: "Not authenticated" });
-  }
-
-  jwt.verify(token, process.env.ACCESS_TOKEN, (err, user) => {
-    if (err) {
-      res
-        .status(403)
-        .json({ message: "Access denied please Relogin", error: err.message });
-    }
-    req.user = user;
-    next();
-  });
+  return res.status(401).json({ message: "Not authenticated" });
 }
+
+jwt.verify(token, process.env.ACCESS_TOKEN, (err, user) => {
+  if (err) {
+    return res
+      .status(403)
+      .json({ message: "Access denied please Relogin", error: err.message });
+  }
+  req.user = user;
+  next();
+});
 
 function Role(role) {
   return (req, res, next) => {
