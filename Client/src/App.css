@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+
+@theme{
+    --font-Poppins:Poppins;
+    --font-ReenieBeanie:Reenie Beanie;
+    
+}
+
+@layer base{
+    body{
+        @apply font-Poppins
+    }
+
+    header{
+        @apply flex border-b-[0.01rem]  border-gray-300   items-center justify-between   h-17
+    }
+
+    h1{
+        @apply font-bold text-3xl
+    }
+
+    label{
+       @apply mb-2 font-medium
+    }
+
+    button:active{
+        @apply opacity-35
+    }
+
+    
+}
+
+@layer components{
+    .input{
+        @apply border border-gray-300 rounded-md py-3 outline-0 pl-3
+    }
+
+    .info{
+        @apply flex flex-col
+    }
+
+    .error{
+        @apply text-red-400 text-[0.9rem] font-semibold
+    }
+
+    .featuresCard{
+        @apply p-6 bg-white rounded-2xl shadow hover:shadow-lg transition
+    }
+
+    .group{
+       @apply mt-2 border-b-2 border-[#D9D9D9] flex flex-col pb-4 flex-1
+    }
+
+    .SbarItem{
+        @apply flex items-center flex-1 hover:opacity-55 active:opacity-30
+    }
+
+    .mainTitle{
+        @apply text-[#D9D9D9]  items-center justify-center sm:text-base  text-xs
+    }
+
+    .eventsCard{
+        @apply flex flex-col bg-white p-6 rounded-3xl  space-y-3 border-2 border-[#666666] relative  max-h-96
+    }
+
+    .ticketSections{
+      @apply  flex flex-col bg-gray-100  rounded-md p-6 space-y-3 shadow-md m-3
+    }
+
+    .walletIcons{
+        @apply w-15 hover:shadow  rounded-3xl sm:scale-75 lg:scale-100 scale-70
+    }
+
+    .responsive{
+        @apply sm:scale-85 md:scale-90 lg:scale-100 scale-70
+    }
+}
