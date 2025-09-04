@@ -37,8 +37,9 @@ Backend: (https://event-x-backend-one.vercel.app
 # 📑 Final Report
 
 1- BackEnd ![Node.js](https://img.shields.io/badge/node-%3E%3D14-green)
--
-   ```js
+ - <details>
+  <summary>Added the modules that are used in the backend.</summary>
+```js
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
@@ -75,6 +76,9 @@ Ticket → Stores ticket information linked to events and users.
 qrcode → Generates QR codes (for example, to validate event tickets or provide quick access to information).
 
 json2csv (Parser) → Converts JSON data into CSV format, which is useful for exporting reports or data
+   
+</details>
+   
 
 
 
