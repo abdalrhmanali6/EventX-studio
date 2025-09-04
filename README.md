@@ -22,18 +22,18 @@ cd ../client
 npm install
 ```
 
-##env
+## env
 ```bash
 MONGO_URI=your_mongo_connection_string
 Access-token=your_secret_key
 ```
 
-##🌍 Live Demo
+## 🌍 Live Demo
 
 Frontend: https://event-x-studio.vercel.app
 
 Backend: https://event-x-backend.vercel.app
 
-##📑 Final Report
+# 📑 Final Report
 
 
