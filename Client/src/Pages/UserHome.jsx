@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { EventContext } from "../App";
 import api from "../components/Api";
 import { useEffect } from "react";
-import UserEventDetails from "../components/userEventDetails";
+import UserEventDetails from "../components/UserEventDetails";
 import MyTickets from "../components/MyTickets";
 import UnderDevelopment from "../components/UnderDevelopment";
 
