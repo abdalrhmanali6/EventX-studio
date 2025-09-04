@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import Input from "./input";
+import Input from "./Input";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import api from "./Api";
