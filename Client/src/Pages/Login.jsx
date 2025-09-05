@@ -26,7 +26,7 @@ const Login = () => {
     }
 
     api
-      .post("/login", data, { withCredentials: true })
+      .post("/login", data)
       .then((res) => {
         console.log(res);
         setUserExist("");
