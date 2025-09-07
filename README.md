@@ -38,14 +38,18 @@ To run this project, you will need to add the following environment variables to
 
 `MONGO_URL`
 
-`ANOTHER_API_KEY`
+`ACCESS_TOKEN`
 
 
 ## 🌍 Live Demo
 
-Frontend: https://event-x-studio-7.vercel.app
+[Frontend](https://event-x-studio-7.vercel.app)
 
- Backend: https://event-x-backend-one.vercel.app
+[Backend](https://event-x-backend-one.vercel.app)
+
+## Screenshots
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
 ## 📑 Final Report
 
