@@ -43,7 +43,7 @@ To run this project, you will need to add the following environment variables to
 
 ## 🌍 Live Demo
 
-[Frontend](https://event-x-studio-7.vercel.app)
+[Frontend](https://event-x-studio-three.vercel.app)
 
 [Backend](https://event-x-backend-one.vercel.app)
 
