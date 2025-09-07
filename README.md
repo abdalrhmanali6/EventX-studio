@@ -1726,10 +1726,9 @@ The frontend development is **70% complete**, with core pages implemented and re
 - [navigate](#navigate)
 
 ---
-
----
-
- ## 🔌 API Service (Axios Instance)
+<details>
+   <summary>🖼️ Component and pages</summary>
+    ## 🔌 API Service (Axios Instance)
 
 ### 📄 Description
 This module provides a pre-configured `axios` instance for handling API requests to the backend.  
@@ -3279,4 +3278,9 @@ It fetches ticket information from the backend API using the `ticketID` stored i
 
 ---
 </details>
+
+
+</details>
+
+---
 
