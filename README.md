@@ -1,4 +1,7 @@
-
+# 📝 Project Info
+- **Project Name:** EventX Studio  
+- **Date:** 2025-09-05  
+- **Author:** Abdalrahman ALI
 # EventX-studio
 
 Event organizers often face challenges in managing events, selling tickets, tracking attendees, and analyzing engagement. Existing solutions are either too complex or expensive for small to medium-sized organizations. The EventX Studio system solves this by providing an easy-to-use Event Management System with separate roles for Admins and Users
@@ -48,8 +51,8 @@ Frontend: https://event-x-studio-7.vercel.app
 
    
 <details>
-<summary>💻   BackEnd </summary>
-
+<summary>### 💻   BackEnd </summary>
+# 📊 Backend  Report
  #### **First:User Schema (MongoDB + Mongoose)**
   ```js
       const mongoose = require("mongoose");
