@@ -1677,6 +1677,7 @@ module.exports = mongoose.model("Ticket", ticketSchema);
 
 <details>
 <summary>🖼️ Frontend</summary>
+   
   # 📊 Frontend  Report
 ## 🔎 Summary
 Brief overview of the current frontend progress, goals, and challenges.  
@@ -1696,39 +1697,40 @@ The frontend development is **70% complete**, with core pages implemented and re
 ## 📑 Table of Contents
 
 ### 📄 Pages
-- [Home](#home)
-- [AdminHome](#adminhome)
-- [BookTicket](#bookticket)
-- [Login](#login)
-- [Register](#register)
-- [TicketDetails](#ticketdetails)
-- [UserHome](#userhome)
+- [Home](#-home-page-component)
+- [AdminHome](#%EF%B8%8F-adminhome-page-component)
+- [BookTicket](#bookticket-component)
+- [Login](#-login-page-component)
+- [Register](#-register-page-component)
+- [TicketDetails](#ticketdetails-component)
+- [UserHome](#userhome-component)
 
 ### 🧭 Components
-- [Api](#api)
-- [Dashboard](#dashboard)
-- [AdminAnalytics](#adminanalytics)
-- [AdminEventDetails](#admineventdetails)
-- [AttendanceInsight](#attendanceinsight)
-- [CreateEvent](#createevent)
-- [EventCard](#eventcard)
-- [EventMangement](#eventmangement)
-- [Header](#header)
-- [Input](#input)
-- [MyTickets](#mytickets)
-- [PaymentCard](#paymentcard)
-- [PaymentWallet](#paymentwallet)
-- [ShowEvents](#showevents)
-- [SidebarItem](#sidebaritem)
-- [TicketCard](#ticketcard)
-- [UnderDevelopment](#underdevelopment)
-- [UserEventDetails](#usereventdetails)
-- [navigate](#navigate)
+- [Api](#-api-service-axios-instance)
+- [Dashboard](#-dashboard-component)
+- [AdminAnalytics](#-adminanalytics-component)
+- [AdminEventDetails](#-admineventdetails-component)
+- [AttendanceInsight](#attendanceinsight-component)
+- [CreateEvent](#createevent-component)
+- [EventCard](#-eventcard-component)
+- [EventMangement](#%EF%B8%8F-eventmangement-component)
+- [Header](#header-component)
+- [Input](#input-component)
+- [MyTickets](#mytickets-component)
+- [PaymentCard](#paymentform-component)
+- [PaymentWallet](#paymentwallet-component)
+- [ShowEvents](#showevents-component)
+- [SidebarItem](#sidebaritem-component)
+- [TicketCard](#ticketcard-component)
+- [UnderDevelopment](#underdevelopment-component)
+- [UserEventDetails](#usereventdetails-component)
+- [navigate](#authentication-helpers-jwt)
 
 ---
 <details>
    <summary>🖼️ Component and pages</summary>
-    ## 🔌 API Service (Axios Instance)
+   
+   ## 🔌 API Service (Axios Instance)
 
 ### 📄 Description
 This module provides a pre-configured `axios` instance for handling API requests to the backend.  
@@ -1999,7 +2001,7 @@ const Register = () => {
     </>
   );
 };
-
+```
 export default Register;
 
 ## 🔑 Login Page Component
@@ -2332,16 +2334,7 @@ Additionally, it includes an **export feature** to download analytics data as a 
 
 ---
 
-### 🐞 Known Issues
-| Issue | Status | Notes |
-|-------|--------|-------|
-| **Hardcoded colors** | ⚠️ Limited flexibility | Charts rely on static `COLORS`; may repeat if data points exceed array length. |
-| **Missing loading/error states** | ❌ Needs improvement | Component directly renders charts; no UI feedback for loading or request failures. |
-| **CSV export UX** | ⚠️ Minimal | Uses `alert()` on failure; could be replaced with `toast` notifications for consistency. |
-| **Accessibility concerns** | ⚠️ Needs improvement | Charts lack ARIA labels and alt-text for better screen reader support. |
-| **Inconsistent naming** | ⚠️ Minor | `/Admin/insights` endpoint vs `/admin/analytics/charts` → inconsistent casing in API routes. |
 
----
 
 ### 📂 Code Snippet
 ```jsx
