@@ -137,7 +137,7 @@ app.get(
       const data = await Events.find({ createdBy: req.user.id });
       if (data.length === 0) {
         return res
-          .status(200)
+          .status(404)
           .json({ message: "No events created by you to show" });
       }
 
