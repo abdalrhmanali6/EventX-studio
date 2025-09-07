@@ -8,7 +8,7 @@ const Home = () => {
         <Header/>
       </header>
       <main>
-        <setion>
+        <section>
                 <div className="flex flex-col items-center justify-center text-center py-20 px-6 bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
                 <h1 className="text-4xl sm:text-5xl font-bold mb-4">
                 Simplify Event Management 🚀
@@ -32,7 +32,7 @@ const Home = () => {
                 </Link>
                 </div>
             </div>
-        </setion>
+        </section>
             <section className="flex flex-col items-center py-16 px-6 ">
                 
                 <h2 className="text-2xl font-bold mb-10">Why choose our platform?</h2>
