@@ -30,7 +30,7 @@ function Dashboard({setActiveComponent}) {
         setInsights(res.data);
       })
       .catch((e) => console.log(e));
-  }, {});
+  }, []);
 
   return (
     <div>
